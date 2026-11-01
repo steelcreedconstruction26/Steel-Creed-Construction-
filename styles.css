@@ -254,3 +254,4 @@ details p{color:#4a4d54;padding-bottom:1.3rem;max-width:70ch;margin:0}
 .section--first{padding-top:clamp(3rem,7vw,5.5rem)}
 .section--dark .checklist li{color:#e0ddd7}
 .estimate .h2{color:#fff}
+.nav__list a.nav__phone{color:#fff;font-weight:700;white-space:nowrap}
