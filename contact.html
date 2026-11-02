@@ -43,11 +43,11 @@
 </header>
 <main id="main">
 
-  <section class="section section--dark section--first" aria-labelledby="estimate-title">
+  <section class="section section--dark section--first" id="estimate" aria-labelledby="estimate-title">
     <div class="container estimate">
       <div class="estimate__copy">
         <p class="eyebrow">Free estimate</p>
-        <h1 id="estimate-title" class="h2">Let's take a look at your roof.</h1>
+        <h1 id="estimate-title" class="h2">Let's talk about your project.</h1>
         <p>Tell us about your property and what's going on. We'll reach out to schedule a free inspection, usually within one business day.</p>
         <ul class="checklist estimate__points">
           <li>No-obligation inspection</li>
@@ -57,25 +57,39 @@
         </ul>
         <p class="estimate__email">Prefer to talk? Contact us at <a href="tel:+17735194135">773-519-4135</a><br>Prefer email? <a href="mailto:steelcreedconstruction@gmail.com">steelcreedconstruction@gmail.com</a><br>Based in La Grange Park, Illinois</p>
       </div>
-      <form class="form" id="estimate-form" novalidate>
+      <form class="form" id="estimate-form" action="https://formsubmit.co/steelcreedconstruction@gmail.com" method="POST" enctype="multipart/form-data" novalidate>
+        <input type="hidden" name="_subject" value="New estimate request - Steel Creed website">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="text" name="_honey" class="form__hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <p class="form__legend"><span class="req" aria-hidden="true">*</span> Required</p>
         <div class="form__row">
-          <label>Full name<input name="name" autocomplete="name" required></label>
-          <label>Phone<input name="phone" type="tel" autocomplete="tel" required></label>
+          <label>Full name <span class="req" aria-hidden="true">*</span><input name="name" autocomplete="name" required></label>
+          <label>Property address or town <span class="req" aria-hidden="true">*</span><input name="address" autocomplete="street-address" required></label>
         </div>
-        <div class="form__row">
-          <label>Email<input name="email" type="email" autocomplete="email" required></label>
-          <label>Property address or town<input name="address" autocomplete="street-address" required></label>
-        </div>
+        <fieldset class="form__contact">
+          <legend>Best way to reach you <span class="req" aria-hidden="true">*</span></legend>
+          <div class="form__choices">
+            <label class="choice"><input type="radio" name="preferred_contact" value="Phone call" checked> Phone call</label>
+            <label class="choice"><input type="radio" name="preferred_contact" value="Text message"> Text</label>
+            <label class="choice"><input type="radio" name="preferred_contact" value="Email"> Email</label>
+          </div>
+          <div class="form__row">
+            <label data-for="phone">Phone <span class="req" data-req="phone" aria-hidden="true">*</span><span class="opt" data-opt="phone">(optional)</span><input name="phone" type="tel" autocomplete="tel"></label>
+            <label data-for="email">Email <span class="req" data-req="email" aria-hidden="true" hidden>*</span><span class="opt" data-opt="email">(optional)</span><input name="email" type="email" autocomplete="email"></label>
+          </div>
+          <p class="form__hint">We only need the one you picked. Add the other if you like.</p>
+        </fieldset>
         <div class="form__row">
           <label>I am a
             <select name="customer">
               <option>Homeowner</option>
-              <option>Commercial property owner / manager</option>
-              <option>General contractor</option>
+              <option value="Commercial property owner / manager">Commercial property owner / manager</option>
+              <option value="General contractor">General contractor</option>
               <option>Other</option>
             </select>
           </label>
-          <label>Service needed
+          <label>Service needed <span class="req" aria-hidden="true">*</span>
             <select name="service" required>
               <option value="">Choose one</option>
               <option>Roof replacement</option>
@@ -93,6 +107,9 @@
             </select>
           </label>
         </div>
+        <div class="form__commercial" hidden>
+          <label>Company or property name<input name="company" autocomplete="organization"></label>
+        </div>
         <label>How soon?
           <select name="timeline">
             <option>As soon as possible</option>
@@ -101,13 +118,17 @@
             <option>Just getting prices</option>
           </select>
         </label>
-        <label>Tell us what's going on<textarea name="message" rows="4" placeholder="Leak over the kitchen, missing shingles after last week's storm, etc."></textarea></label>
-        <p class="form__error" role="alert" hidden>Please fill in your name, phone, a valid email, address, and the service you need.</p>
+        <label>Tell us what's going on<textarea name="message" rows="4" placeholder="Leak over the kitchen, missing shingles after last week's storm, bid date for a flat roof, etc."></textarea></label>
+        <label class="form__file"><span class="form__file-label">Photos or plans <span class="opt">(optional)</span></span>
+          <input type="file" name="attachment" accept="image/*,.pdf">
+          <span class="form__hint">One photo or PDF, up to 5 MB. Larger plan sets? Email them to <a href="mailto:steelcreedconstruction@gmail.com">steelcreedconstruction@gmail.com</a> or mention it above and we'll send a link.</span>
+        </label>
+        <p class="form__error" role="alert" hidden></p>
         <button type="submit" class="btn btn--red btn--block">Request My Free Estimate</button>
-        <p class="form__note">Submitting opens your email app with your request filled in, addressed to steelcreedconstruction@gmail.com.</p>
-        <div class="form__success" role="status" hidden>
-          <h3>Your request is ready to send.</h3>
-          <p>Your email app should open with everything filled in. Hit send and we'll be in touch shortly. If it didn't open, email us directly at <a href="mailto:steelcreedconstruction@gmail.com">steelcreedconstruction@gmail.com</a>.</p>
+        <p class="form__note">We only use your information to respond to this request and follow up on your project. We never sell or share it. Prefer to talk? Call <a href="tel:+17735194135">773-519-4135</a>.</p>
+        <div class="form__success" role="status" tabindex="-1" hidden>
+          <h3>Thanks, we've got your request.</h3>
+          <p>We'll reach out the way you asked, usually within one business day. Need us sooner? Call <a href="tel:+17735194135">773-519-4135</a>.</p>
         </div>
       </form>
     </div>
